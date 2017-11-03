@@ -167,7 +167,7 @@ void executeAndReport(String testResultLocation, def body) {
     // We're wrapping this in a timeout - if it takes longer, kill it.
     try {
         def timeoutMinutes = 120
-        if (env.STAGE_NAME == 'Integration Testing') {
+        if (env.STAGE_NAME.startsWith('Integration Testing')) {
             timeoutMinutes = 240
         }
         timeout(time: timeoutMinutes, unit: 'MINUTES') {
