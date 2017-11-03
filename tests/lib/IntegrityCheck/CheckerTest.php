@@ -159,15 +159,17 @@ class CheckerTest extends TestCase {
 	}
 
 	public function testVerifyAppSignatureWithValidSignatureData() {
+		$map = [
+			['integrity.check.disabled', false, false],
+			['excludedFiles', [], array()],
+		];
 		$this->environmentHelper
 				->expects($this->once())
 				->method('getChannel')
 				->will($this->returnValue('stable'));
 		$this->config
-				->expects($this->any())
-				->method('getSystemValue')
-				->with('integrity.check.disabled', false)
-				->will($this->returnValue(false));
+			->method('getSystemValue')
+			->will($this->returnValue($map));
 
 		$this->appLocator
 				->expects($this->once())
@@ -249,15 +251,17 @@ class CheckerTest extends TestCase {
 	}
 
 	public function testVerifyAppSignatureWithTamperedFiles() {
+		$map = [
+			['integrity.check.disabled', false, false],
+			['excludedFiles', [], array()],
+		];
 		$this->environmentHelper
 				->expects($this->once())
 				->method('getChannel')
 				->will($this->returnValue('stable'));
 		$this->config
-				->expects($this->any())
-				->method('getSystemValue')
-				->with('integrity.check.disabled', false)
-				->will($this->returnValue(false));
+			->method('getSystemValue')
+			->will($this->returnValue($map));
 
 		$this->appLocator
 				->expects($this->once())
@@ -313,15 +317,17 @@ class CheckerTest extends TestCase {
 	}
 
 	public function testVerifyAppSignatureWithTamperedFilesAndAlternatePath() {
+		$map = [
+			['integrity.check.disabled', false, false],
+			['excludedFiles', [], array()],
+		];
 		$this->environmentHelper
 				->expects($this->once())
 				->method('getChannel')
 				->will($this->returnValue('stable'));
 		$this->config
-				->expects($this->any())
-				->method('getSystemValue')
-				->with('integrity.check.disabled', false)
-				->will($this->returnValue(false));
+			->method('getSystemValue')
+			->will($this->returnValue($map));
 
 		$this->appLocator
 				->expects($this->never())
@@ -422,15 +428,17 @@ class CheckerTest extends TestCase {
 	}
 
 	public function testVerifyAppWithDifferentScopeAndAlwaysTrustedCore() {
+		$map = [
+			['integrity.check.disabled', false, false],
+			['excludedFiles', [], array()],
+		];
 		$this->environmentHelper
 				->expects($this->once())
 				->method('getChannel')
 				->will($this->returnValue('stable'));
 		$this->config
-				->expects($this->any())
-				->method('getSystemValue')
-				->with('integrity.check.disabled', false)
-				->will($this->returnValue(false));
+			->method('getSystemValue')
+			->will($this->returnValue($map));
 
 		$this->appLocator
 				->expects($this->once())
@@ -626,15 +634,17 @@ class CheckerTest extends TestCase {
 	}
 
 	public function testVerifyCoreSignatureWithValidSignatureData() {
+		$map = [
+			['integrity.check.disabled', false, false],
+			['excludedFiles', [], array()],
+		];
 		$this->environmentHelper
 				->expects($this->once())
 				->method('getChannel')
 				->will($this->returnValue('stable'));
 		$this->config
-				->expects($this->any())
-				->method('getSystemValue')
-				->with('integrity.check.disabled', false)
-				->will($this->returnValue(false));
+			->method('getSystemValue')
+			->will($this->returnValue($map));
 
 		$this->environmentHelper
 				->expects($this->any())
@@ -667,15 +677,17 @@ class CheckerTest extends TestCase {
 	}
 
 	public function testVerifyCoreSignatureWithValidModifiedHtaccessAndUserIniSignatureData() {
+		$map = [
+			['integrity.check.disabled', false, false],
+			['excludedFiles', [], array()],
+		];
 		$this->environmentHelper
 			->expects($this->once())
 			->method('getChannel')
 			->will($this->returnValue('stable'));
 		$this->config
-			->expects($this->any())
 			->method('getSystemValue')
-			->with('integrity.check.disabled', false)
-			->will($this->returnValue(false));
+			->will($this->returnValue($map));
 
 		$this->environmentHelper
 			->expects($this->any())
@@ -709,15 +721,17 @@ class CheckerTest extends TestCase {
 	}
 
 	public function testVerifyCoreSignatureWithValidSignatureDataAndNotAlphabeticOrder() {
+		$map = [
+			['integrity.check.disabled', false, false],
+			['excludedFiles', [], array()],
+		];
 		$this->environmentHelper
 				->expects($this->once())
 				->method('getChannel')
 				->will($this->returnValue('stable'));
 		$this->config
-				->expects($this->any())
-				->method('getSystemValue')
-				->with('integrity.check.disabled', false)
-				->will($this->returnValue(false));
+			->method('getSystemValue')
+			->will($this->returnValue($map));
 
 		$this->environmentHelper
 				->expects($this->any())
@@ -797,15 +811,17 @@ class CheckerTest extends TestCase {
 	}
 
 	public function testVerifyCoreSignatureWithTamperedFiles() {
+		$map = [
+			['integrity.check.disabled', false, false],
+			['excludedFiles', [], array()],
+		];
 		$this->environmentHelper
 				->expects($this->once())
 				->method('getChannel')
 				->will($this->returnValue('stable'));
 		$this->config
-				->expects($this->any())
-				->method('getSystemValue')
-				->with('integrity.check.disabled', false)
-				->will($this->returnValue(false));
+			->method('getSystemValue')
+			->will($this->returnValue($map));
 
 		$this->environmentHelper
 				->expects($this->any())
